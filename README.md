@@ -1,5 +1,34 @@
 # TP Backend TTADS
 
+## Enunciado
+Sistema para un supermercado utilizando Express, TypeORM con MySQL y GraphQL para el backend y Angular estilizando con Bootstrap para el frontend.
+
+### ABMC Simple
+* Entidad: Categoría.
+* Atributos: id, denominación, created_at.
+
+### ABMC Dependiente
+* Entidad: Producto.
+* Atributos: id, nombre, precio, stock, created_at
+
+### Listado simple
+Listado de categorías para luego manejarlo desde el frontend como navbar
+
+### Listado complejo
+Listado de productos filtrados por nombre
+
+### Detalle
+* Entidades: Producto y Categoría
+* Parámetro: ID de producto
+
+### Miembros:
+* Bosio, Rocco - 46812
+
+### MD
+![MD](img/md.svg)
+
+___
+
 ## 1 - Enunciado
 
 ### 1.1 - Desarrollo
