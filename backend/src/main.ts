@@ -26,6 +26,7 @@ export async function startServer() {
 
   //Middlewares
   app.use(cors())
+  app.use(express.json())
 
   return app
 }
