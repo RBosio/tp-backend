@@ -5,6 +5,7 @@ import { buildSchema } from 'type-graphql'
 import Container from 'typedi'
 import { PingResolver } from './resolvers/ping'
 import { CategoryResolver } from './resolvers/category'
+import { ProductResolver } from './resolvers/product'
 
 
 export async function startServer() {
@@ -16,7 +17,7 @@ export async function startServer() {
   //Start apollo-server
   const server = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [PingResolver, CategoryResolver],
+      resolvers: [PingResolver, CategoryResolver, ProductResolver],
       container: Container
     }),
     context: ({req, res}) => ({req, res})

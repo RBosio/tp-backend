@@ -1,5 +1,5 @@
 import { Field, Float, ID, Int, ObjectType } from "type-graphql";
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Category } from "./category";
 
 @ObjectType()
@@ -25,13 +25,17 @@ export class Product {
   @CreateDateColumn()
   created_at!: Date
 
-  @Field(() => ID)
+  @Field(() => Category)
   @ManyToOne(() => Category, category => category.id, {
-    cascade: true
+    cascade: true,
+    nullable: false
   })
+  @JoinColumn({name: 'categoryId'})
   category!: number
 
-  @Field(() => String)
+  @Field(() => String, {
+    nullable: true
+  })
   @Column({length: 100, nullable: true})
   image!: string
 

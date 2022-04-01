@@ -20,7 +20,7 @@ export class CategoryService {
     .getOne()
 
     if (!category) {
-      throw new Error('Category doesn\'t exist')
+      throw new Error('Category doesn\'t exists')
     }
     
     return category
@@ -36,7 +36,7 @@ export class CategoryService {
     const { affected } = await this.categoryRepository.update(id, values)
     
     if (affected == 0) {
-      throw new Error('Category doesn\'t exist')
+      throw new Error('Category doesn\'t exists')
     }
 
     return 'Category updated'
@@ -46,7 +46,7 @@ export class CategoryService {
     const { affected } = await this.categoryRepository.update(id, {status: false})
 
     if (affected == 0) {
-      throw new Error('Category doesn\'t exist')
+      throw new Error('Category doesn\'t exists')
     }
 
     return 'Category deleted'
