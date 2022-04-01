@@ -4,6 +4,7 @@ import cors from 'cors'
 import { buildSchema } from 'type-graphql'
 import Container from 'typedi'
 import { PingResolver } from './resolvers/ping'
+import { CategoryResolver } from './resolvers/category'
 
 
 export async function startServer() {
@@ -15,7 +16,7 @@ export async function startServer() {
   //Start apollo-server
   const server = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [PingResolver],
+      resolvers: [PingResolver, CategoryResolver],
       container: Container
     }),
     context: ({req, res}) => ({req, res})
