@@ -13,4 +13,20 @@
       </div>
     </div>
   </nav>
+
+  <div class="row">
+    <div class="col-md-3 mt-2" align="center" *ngFor="let product of products">
+      <div class="card" style="width: 14rem;">
+        <img [src]="BASE_URL+product.image" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text">Price: {{product.price | currency}}</p>
+          <div class="d-flex justify-content-around align-items-center">
+            <button class="btn btn-success" disabled>Add to cart</button>
+            <button class="btn btn-warning">Info</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
