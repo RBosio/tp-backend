@@ -1,5 +1,5 @@
-import path from "path";
-import { DataSource } from "typeorm";
+import path from "path"
+import { DataSource } from "typeorm"
 import dotenv from 'dotenv'
 
 dotenv.config()
