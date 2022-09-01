@@ -37,11 +37,11 @@ export class ListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.categorySubscription = this.categoryService.getAll().subscribe((result: any) => {
+    this.categorySubscription = this.categoryService.getAll().valueChanges.subscribe((result: any) => {
       this.categories = result?.data.getCategories
       this.categories = this.categories.filter(category => category.status)
     })
-    this.productSubscription = this.productService.getProducts().subscribe((result: any) => {
+    this.productSubscription = this.productService.getProducts().valueChanges.subscribe((result: any) => {
       this.products = result?.data.getProducts
       this.products = this.products.filter(product => product.status)
       this.productsFiltered = this.products
@@ -55,9 +55,8 @@ export class ListComponent implements OnInit, OnDestroy {
 
   detail(id: number) {
     const idProduct = id.toString()
-    this.productService.getProduct(idProduct).subscribe((result: any) => {
+    this.productService.getProduct(idProduct).valueChanges.subscribe((result: any) => {
       this.productDetail = result?.data.getProduct
-      console.log(this.productDetail.category.name)
     })
   }
 
